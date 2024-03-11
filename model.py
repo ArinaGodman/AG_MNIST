@@ -21,3 +21,5 @@ svc_best = SVC(random_state=42, C=0.5, gamma=1, kernel='poly')
 svc_best.fit(X, y)
 
 joblib.dump(svc_best, 'svc_model.sav')
+
+print('Klart!')
