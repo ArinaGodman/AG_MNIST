@@ -2,6 +2,7 @@ import joblib
 import streamlit as st
 import cv2
 import numpy as np
+import os
 
 def preprocess_image(image):
     # Convert to grayscale
@@ -23,6 +24,8 @@ def preprocess_image(image):
 
 def make_prediction(image):
     image_pp = preprocess_image(image)
-    model = joblib.load('svc_model.sav')
+    current_dir = os.path.dirname(__file__)
+    model_path = os.path.join(current_dir, 'svc_model.sav')
+    model = joblib.load(model_path)
     predicted_number = model.predict([image_pp.flatten()])  # Flatten the image array
     return predicted_number[0]  # Get the first element from the prediction array
