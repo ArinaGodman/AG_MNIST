@@ -18,7 +18,7 @@ uploaded_file = st.file_uploader('Upload your photo', type=['jpg', 'jpeg', 'png'
 if st.button('Challenge Model'):
     if uploaded_file is not None:
         # Add your model prediction logic here
-        predicted_number = predict  # Replace with the actual predicted number
+        predicted_number = make_prediction(uploaded_file)  # Replace with the actual predicted number
 
         # Display the prediction number
         display_prediction_number(predicted_number)
