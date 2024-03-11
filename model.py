@@ -16,8 +16,8 @@ X = std_scaler.fit_transform(X)
 
 joblib.dump(std_scaler, 'std_scaler.sav')
 
-#svc_best = SVC(random_state=42, C=0.5, gamma=1, kernel='poly')
+svc_best = SVC(random_state=42, C=0.5, gamma=1, kernel='poly')
 
-#svc_best.fit(X, y)
+svc_best.fit(X, y)
 
-#joblib.dump(svc_best, 'svc_model.sav')
+joblib.dump(svc_best, 'svc_model.sav')
