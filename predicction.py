@@ -30,7 +30,7 @@ def preprocess_image(image):
     std_scaler = joblib.load(std_scaler_path)
 
     # Apply StandardScaler
-    img_ready = std_scaler.transform(reshaped_image)
+    img_ready = std_scaler.transform(reshaped_img_2d)
 
     return img_ready.flatten()
 
