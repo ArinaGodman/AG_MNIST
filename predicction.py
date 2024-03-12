@@ -27,7 +27,7 @@ def preprocess_image(image, std_scaler_path='std_scaler.sav'):
     std_scaler = joblib.load(std_scaler_path)
 
     # Apply StandardScaler without considering feature names
-    img_ready = StandardScaler().fit_transform(reshaped_img_2d)
+    img_ready = std_scaler.transform(reshaped_img_2d)
 
     return img_ready.flatten()
 
