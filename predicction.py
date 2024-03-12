@@ -5,7 +5,7 @@ import numpy as np
 import os
 from sklearn.preprocessing import StandardScaler
 
-def preprocess_image(image):
+def preprocess_image(image, std_scaler_path='std_scaler.sav'):
     # Convert to grayscale
     gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
@@ -23,10 +23,11 @@ def preprocess_image(image):
     # Reshape to a 2D array for StandardScaler
     reshaped_img_2d = flattened_img.reshape(1, -1)  # Change the shape to (1, 784)
 
-    std_scaler = joblib.load('std_scaler.sav')
+    # Load StandardScaler
+    std_scaler = joblib.load(std_scaler_path)
 
-    # Apply StandardScaler
-    img_ready = std_scaler.transform(reshaped_img_2d)
+    # Apply StandardScaler without considering feature names
+    img_ready = StandardScaler().fit_transform(reshaped_img_2d)
 
     return img_ready.flatten()
 
