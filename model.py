@@ -12,7 +12,7 @@ X, y = mnist["data"], mnist["target"]
 
 std_scaler = StandardScaler()
 
-X = std_scaler.fit_transform(X)
+X = std_scaler.fit_transform(X.values)
 
 joblib.dump(std_scaler, 'std_scaler.sav')
 
